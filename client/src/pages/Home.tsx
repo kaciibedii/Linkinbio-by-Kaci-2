@@ -28,10 +28,10 @@ export default function Home() {
       >
         <motion.div variants={item} className="text-center space-y-2">
           <h1 className="text-4xl font-bold tracking-tight bg-gradient-to-r from-primary to-muted-foreground bg-clip-text text-transparent">
-            kaci bedi
+            johnnie walker
           </h1>
           <p className="text-muted-foreground">
-            where curiosity for knowledge meets the pursuit of a better life :)
+            I studied bro
           </p>
         </motion.div>
 
@@ -56,19 +56,19 @@ export default function Home() {
           <SocialButton
             icon={SiInstagram}
             label="Instagram"
-            href="https://instagram.com/kaciibedii"
+            href="https://instagram.com/lukebelmar"
             hoverClass="instagram-hover"
           />
           <SocialButton
             icon={SiYoutube}
             label="YouTube"
-            href="https://youtube.com/@ytkaci"
+            href="https://youtube.com/@lukebelmar"
             hoverClass="youtube-hover"
           />
           <SocialButton
             icon={SiTiktok}
             label="TikTok"
-            href="https://tiktok.com/@kacibedi"
+            href="https://tiktok.com/@lukebelmar"
             hoverClass="tiktok-hover"
           />
         </motion.div>
