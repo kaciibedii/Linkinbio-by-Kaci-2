@@ -1,15 +1,9 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
-import themePlugin from "@replit/vite-plugin-shadcn-theme-json";
-import path, { dirname } from "path";
-import runtimeErrorOverlay from "@replit/vite-plugin-runtime-error-modal";
-import { fileURLToPath } from "url";
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+import path from "path";
 
 export default defineConfig({
-  plugins: [react(), runtimeErrorOverlay(), themePlugin()],
+  plugins: [react()],
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "client", "src"),
@@ -17,11 +11,10 @@ export default defineConfig({
     },
   },
   root: path.resolve(__dirname, "client"),
-   // ✅ Set correct base path for GitHub Pages
-  publicDir: path.resolve(__dirname, "public"), // ✅ Ensure public files (like favicon) are copied
+  publicDir: path.resolve(__dirname, "public"),
   build: {
-    outDir: path.resolve(__dirname, "dist"), // ✅ Fix output directory for GitHub Pages
+    outDir: path.resolve(__dirname, "dist"),
     emptyOutDir: true,
+    assetsDir: "./assets", // ✅ Ensures relative paths for assets
   },
 });
-
