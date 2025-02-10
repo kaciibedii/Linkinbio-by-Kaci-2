@@ -11,21 +11,16 @@ function registerRoutes(app2) {
 // server/vite.ts
 import express from "express";
 import fs from "fs";
-import path2, { dirname as dirname2 } from "path";
-import { fileURLToPath as fileURLToPath2 } from "url";
+import path2, { dirname } from "path";
+import { fileURLToPath } from "url";
 import { createServer as createViteServer, createLogger } from "vite";
 
 // vite.config.ts
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
-import themePlugin from "@replit/vite-plugin-shadcn-theme-json";
-import path, { dirname } from "path";
-import runtimeErrorOverlay from "@replit/vite-plugin-runtime-error-modal";
-import { fileURLToPath } from "url";
-var __filename = fileURLToPath(import.meta.url);
-var __dirname = dirname(__filename);
+import path from "path";
 var vite_config_default = defineConfig({
-  plugins: [react(), runtimeErrorOverlay(), themePlugin()],
+  plugins: [react()],
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "client", "src"),
@@ -33,20 +28,19 @@ var vite_config_default = defineConfig({
     }
   },
   root: path.resolve(__dirname, "client"),
-  // ✅ Set correct base path for GitHub Pages
   publicDir: path.resolve(__dirname, "public"),
-  // ✅ Ensure public files (like favicon) are copied
   build: {
     outDir: path.resolve(__dirname, "dist"),
-    // ✅ Fix output directory for GitHub Pages
-    emptyOutDir: true
+    emptyOutDir: true,
+    assetsDir: "./assets"
+    // ✅ Ensures relative paths for assets
   }
 });
 
 // server/vite.ts
 import { nanoid } from "nanoid";
-var __filename2 = fileURLToPath2(import.meta.url);
-var __dirname2 = dirname2(__filename2);
+var __filename = fileURLToPath(import.meta.url);
+var __dirname2 = dirname(__filename);
 var viteLogger = createLogger();
 function log(message, source = "express") {
   const formattedTime = (/* @__PURE__ */ new Date()).toLocaleTimeString("en-US", {
